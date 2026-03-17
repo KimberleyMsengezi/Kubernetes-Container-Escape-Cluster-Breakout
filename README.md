@@ -4,14 +4,14 @@
 ![Red Team](https://img.shields.io/badge/Red_Team-2026-red) 
 ![MITRE ATT&CK](https://img.shields.io/badge/MITRE_ATT%26CK-Mapped-green)
 
-** Edge-cutting offensive security project** demonstrating the exact kill-chain used by advanced threat actors against cloud-native Kubernetes environments in the UAE and global financial sectors.
+Edge-cutting offensive security project demonstrating the exact kill-chain used by advanced threat actors against cloud-native Kubernetes environments in the UAE and global financial sectors.
 
 ### Executive Summary
 Complete real-world attack chain:  
 **Privileged pod → host filesystem escape → kernel namespace breakout → etcd secret theft → full cluster-wide compromise**  
 All techniques executed in an isolated Minikube environment and fully reproducible.
 
-### Technical Deep Dive (2026 Attack Techniques)
+### Technical Deep Dive (Attack Techniques)
 
 1. **Privileged + hostPath + hostPID Pod**  
    Container runtime isolation is completely bypassed by combining `privileged: true`, `hostPath: /` and `hostPID: true`. This gives immediate root access to the underlying node.
