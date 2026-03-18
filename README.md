@@ -20,7 +20,7 @@ All techniques executed in an isolated Minikube environment and fully reproducib
    `chroot /host` instantly pivots the entire root filesystem to the real node, defeating all container boundaries.
 
 3. **nsenter Namespace Breakout **  
-   `nsenter --target 1 --mount --uts --ipc --net --pid` enters the host’s PID 1 namespace, escaping cgroups, network policies, SELinux/AppArmor and runtime security controls — technique featured at Black Hat 2025 and DEF CON Cloud Village 2026.
+   `nsenter --target 1 --mount --uts --ipc --net --pid` enters the host’s PID 1 namespace, escaping cgroups, network policies, SELinux/AppArmor and runtime security controls technique featured at Black Hat 2025 and DEF CON Cloud Village 2026.
 
 4. **etcd Secret Exfiltration & Cluster Takeover**  
    Direct read access to `/var/lib/etcd/member/snap/db` extracts all service-account tokens, kubeconfigs and TLS certificates, allowing deployment of new cluster-admin pods from anywhere.
